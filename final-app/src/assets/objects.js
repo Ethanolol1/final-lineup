@@ -19,4 +19,21 @@ export const maps = [
   {name: 'Sunset', img: sunset_img}
 ]
 
+export const agents = [
+  {name: "Brimstone"},
+  {name: "Viper"},
+  {name: "Killjoy"},
+  {name: "Kay/o"},
+  {name: "Sova"},
+  {name: "Gekko"},
+  {name: "Phoenix"}
+  // {name: "Brimstone", img: brimstone_img},
+  // {name: "Viper", img: viper_img},
+  // {name: "Killjoy", img: killjoy_img},
+  // {name: "Kay/o", img: kayo_img},
+  // {name: "Sova", img: sova_img},
+  // {name: "Gekko", img: gekko_img},
+  // {name: "Phoenix", img: phoenix_img}
+]
+
 export const defaultMap = maps[0]
