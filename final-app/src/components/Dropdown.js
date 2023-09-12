@@ -1,4 +1,4 @@
-Simport React, { useState } from 'react'
+import React, { useState } from 'react'
 import ArrowDropDownCircleIcon from '@mui/icons-material/ArrowDropDownCircle';
 
 function Dropdown(props) {
@@ -9,7 +9,7 @@ function Dropdown(props) {
         setIsOpen(false)
         setSelectedItem(item)
         props.onChange(item)
-        // console.log(selectedItem)
+        console.log(selectedItem)
     }
     
   return (
@@ -19,7 +19,7 @@ function Dropdown(props) {
         </button>
         {isOpen && (
             <ul className="dropdownList">
-                {items != undefined ? items.map((item) => (
+                {items !== undefined ? items.map((item) => (
                     <div>
                         <button key={item.name} onClick={() => handleItemClick(item)} > {item.name} </button>
                     </div>
