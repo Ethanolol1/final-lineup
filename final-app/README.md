@@ -2,16 +2,59 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## Setup
+
+First ensure you have [node.js](https://nodejs.org/en) installed.
+In the project directory, first run:
+
+### `npm install react-scripts`
+
+Then run:
+
+### `npm install react-router-dom`
+
+Then run:
+
+### `npm install -g yarn`
+
+Then run:
+
+### `yarn`
+
+From this point forward, you should be able to run any available scripts below.
+
+## Known Vulnerability Fix
+
+`nth-check` has a known false positive on `react-scripts@5.0.1` due to a dependency leaving `nth-check` on version `1.0.2`.
+After running `yarn` simply check `yarn.lock` and remove the package instance of `nth-check@^1.0.2` and replace any reference occurrence of `1.0.2` to `2.0.1`.
+To check that this was done successfully, run `yarn audit`.
+
+This vulnerability is only being shown on audit on developer side for the unsafe regex issue, but not on production side, as running `npm audit --omit=dev` will show since `react-scripts` is only in `devDependencies` in the `package.json`.
+
 ## Available Scripts
+
+In command line terminal, you can run command:
+
+### `lsof -i :3000` for mac/linux, `netstat -ano | findstr :3000` for windows
+
+This command determines if there are any active apps using port 3000.
+
+To stop any apps on this port before running this project, run command:
+
+### `kill -9 <PID>` for mac/linux, `taskkill /F /PID <PID>` for windows
+
+Replace `<PID>` with the given <PID> from the previous line command.
+
+Now you should be able to run the start scripts below.
 
 In the project directory, you can run:
 
-### `npm start`
+### `yarn start`
 
 Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-The page will reload when you make changes.\
+The page will automatically update to reflect code changes.\
 You may also see any lint errors in the console.
 
 ### `npm test`
