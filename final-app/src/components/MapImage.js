@@ -41,32 +41,38 @@ function MapImage(props) {
 
   return (
     <div>
-      <h1 className="center" id="currentMap">
-        {props.name}
-      </h1>
-      {isShowingScreenshot && pressedButton && currentScreenshot ? (
-        <img src={currentScreenshot} alt="" id="currentScreenshot" className="center" />
-      ) : (
-        <div />
-      )}
-      <button key={"add"} onClick={addDraggableButton}>
-        Add
-      </button>
-      <button key={"edit"} onClick={toggleDraggability}>
-        {enableDrag ? 'Stop Editing' : 'Edit'}
-      </button>
-      <img src={props.img} alt="" id="currentMap" className="center" />
-      {buttons.map((position, index) => (
-        <DraggableButton
-          key={index}
-          initialPosition={position}
-          onPress={() => onButtonPressed(index)}
-          screenshot={lotus_viper[index]}
-          ref={buttonRefs.current[index]} // Pass the ref to the DraggableButton component
-          closeScreenshot={closeShownScreenshot}
-        />
-      ))}
-    </div>
+  <div className="map-container">
+    <h1 className="center" id="currentMap">
+      {props.name}
+    </h1>
+    {isShowingScreenshot && pressedButton && currentScreenshot ? (
+      <img src={currentScreenshot} alt="" id="currentScreenshot" className="center" />
+    ) : (
+      <div />
+    )}
+    <img src={props.img} alt="" id="currentMap" className="center" />
+  </div>
+  <div className="button-column">
+    <button key={"add"} onClick={addDraggableButton}>
+      Add
+    </button>
+    <button key={"edit"} onClick={toggleDraggability}>
+      {enableDrag ? 'Stop Editing' : 'Edit'}
+    </button>
+    {buttons.map((position, index) => (
+      <DraggableButton
+        key={index}
+        initialPosition={position + index}
+        onPress={() => onButtonPressed(index)}
+        screenshot={lotus_viper[index] ?? { name: undefined, img: undefined }}
+        ref={buttonRefs.current[index]} // Pass the ref to the DraggableButton component
+        closeScreenshot={closeShownScreenshot}
+        draggable={enableDrag}
+      />
+    ))}
+  </div>
+</div>
+
   );
 }
 
