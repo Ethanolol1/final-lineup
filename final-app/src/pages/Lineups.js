@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import Dropdown from '../components/Dropdown'
+import MapImage from '../components/MapImage'
 import { maps, agents } from '../assets/objects'
 import 'react-dropdown/style.css'
 import '../styles/Lineups.css'
@@ -10,6 +11,7 @@ function Lineups() {
   const defaultAgent = agents[0]
   const [selectedMap, setSelectedMap] = useState(defaultMap)
   const [selectedAgent, setSelectedAgent] = useState(defaultAgent)
+
   const onSelectMap = (item) => {
     setSelectedMap(item)
   }
@@ -26,8 +28,7 @@ function Lineups() {
         <Dropdown class="center" items={agents} onChange={onSelectAgent} value={defaultAgent} />
       </div>
       <div className="right">
-        <h1 class="center" id="currentMap">{selectedMap.name}</h1>
-        <img src={selectedMap.img} alt="" id="currentMap" class="center" />
+        <MapImage class="center" name={selectedMap.name} img={selectedMap.img} />
       </div>
     </div>
   )
