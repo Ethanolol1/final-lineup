@@ -28,7 +28,7 @@ function Lineups() {
         <Dropdown class="center" items={agents} onChange={onSelectAgent} value={defaultAgent} />
       </div>
       <div className="right">
-        <MapImage class="center" name={selectedMap.name} img={selectedMap.img} />
+        <MapImage class="right" name={selectedMap.name} img={selectedMap.img} />
       </div>
     </div>
   )

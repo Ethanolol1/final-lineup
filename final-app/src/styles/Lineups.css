@@ -1,19 +1,34 @@
 #currentMap {
     text-align: center;
   }
-/* .center {
+
+.center {
     display: flex;
     margin-left: auto;
     margin-right: auto;
-    width: 50%;
-  } */
+    width: 60%;
+}
 
 .left {
   float: left;
-  width: 50%;
+  width: 20%;
+  box-sizing: border-box;
+  /* display: flex; */
+  /* justify-content: space-between; */
 }
+
 
 .right {
   float: right;
-  width: 50%;
+  width: 80%;
+  flex: 1;
+  box-sizing: border-box;
+  /* display: flex; */
+  /* justify-content: space-between; */
+}
+
+.screenshot {
+  float: right;
+  flex: 1;
+  box-sizing: border-box;
 }

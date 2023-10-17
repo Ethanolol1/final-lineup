@@ -1,6 +1,7 @@
 import React, { useState, useRef } from 'react';
 import DraggableButton from './DraggableButton';
 import { lotus_viper } from '../assets/objects';
+import '../styles/Lineups.css';
 
 function MapImage(props) {
   const [enableDrag, setEnableDrag] = useState(false);
@@ -30,8 +31,8 @@ function MapImage(props) {
     setPressedButton(buttons[index]);
     // Check if the ref exists and is not null before calling getScreenshot
     const buttonRef = buttonRefs.current[index];
-    if (buttonRef && buttonRef.current) {
-      setCurrentScreenshot(buttonRef.current.getScreenshot());
+    if (buttonRef && buttonRefs.current) {
+      setCurrentScreenshot(lotus_viper[index]?.img);
     }
   };
 
@@ -46,7 +47,7 @@ function MapImage(props) {
       {props.name}
     </h1>
     {isShowingScreenshot && pressedButton && currentScreenshot ? (
-      <img src={currentScreenshot} alt="" id="currentScreenshot" className="center" />
+      <img src={currentScreenshot} alt="" id="currentScreenshot" className="screenshot" />
     ) : (
       <div />
     )}
@@ -61,7 +62,7 @@ function MapImage(props) {
     </button>
     {buttons.map((position, index) => (
       <DraggableButton
-        key={index}
+        id={index}
         initialPosition={position + index}
         onPress={() => onButtonPressed(index)}
         screenshot={lotus_viper[index] ?? { name: undefined, img: undefined }}

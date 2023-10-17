@@ -35,12 +35,12 @@ function DraggableButton(props) {
           defaultPosition={nonDraggablePosition} // Use non-draggable position
           onDrag={handleButtonDrag}
         >
-          <button key={props.key}>Drag me!</button>
+          <button id={props.id}>Drag me!</button>
         </Draggable>
       ) : (
         <button
           style={{ position: 'relative', top: nonDraggablePosition.y, left: nonDraggablePosition.x }}
-          key={props.key}
+          id={props.id}
           onClick={handleButtonPress}
         >
           {props.screenshot.name ?? ''}
