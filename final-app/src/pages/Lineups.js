@@ -20,7 +20,7 @@ function Lineups() {
   }
   
   return (
-    <div className="myClassName">
+    <div className="mainPage">
       <div className="left" >
         <h1>Learn Lineups!</h1>
         <Dropdown class="center" items={maps} onChange={onSelectMap} value={defaultMap} />

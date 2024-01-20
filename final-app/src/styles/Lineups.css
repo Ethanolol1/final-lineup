@@ -13,16 +13,20 @@
   float: left;
   width: 20%;
   box-sizing: border-box;
+  background-color: rgb(23, 59, 70);
+  height: 100vh;
+
   /* display: flex; */
   /* justify-content: space-between; */
 }
 
-
 .right {
   float: right;
   width: 80%;
+  height: 100vh;
   flex: 1;
   box-sizing: border-box;
+  background-color: rgb(23, 81, 85);
   /* display: flex; */
   /* justify-content: space-between; */
 }
@@ -31,4 +35,8 @@
   float: right;
   flex: 1;
   box-sizing: border-box;
+}
+
+.mainPage {
+  background-color: rgb(11, 59, 70);
 }

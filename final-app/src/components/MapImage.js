@@ -27,13 +27,18 @@ function MapImage(props) {
   };
 
   const onButtonPressed = (index) => {
-    setShowingScreenshot(true);
-    setPressedButton(buttons[index]);
-    // Check if the ref exists and is not null before calling getScreenshot
-    const buttonRef = buttonRefs.current[index];
-    if (buttonRef && buttonRefs.current) {
-      setCurrentScreenshot(lotus_viper[index]?.img);
+    if (isShowingScreenshot) {
+      setShowingScreenshot(false);
+    } else {
+      setShowingScreenshot(true);
+      setPressedButton(buttons[index]);
+      // Check if the ref exists and is not null before calling getScreenshot
+      const buttonRef = buttonRefs.current[index];
+      if (buttonRef && buttonRefs.current) {
+        setCurrentScreenshot(lotus_viper[index]?.img);
+      }
     }
+    
   };
 
   const closeShownScreenshot = () => {
